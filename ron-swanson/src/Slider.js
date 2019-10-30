@@ -1,10 +1,17 @@
 import React, {Component} from 'react';
+import ControlledCarousel from "./SliderQuote.js";
+
 
 class Slider extends Component {
     state = {
         apiUrl: "http://ron-swanson-quotes.herokuapp.com/v2/quotes/5",
-        quotes: []
+        quotes: [],
+        i: 0
     }
+
+    // slideshow = () => {
+        
+    // }
 
     componentDidMount(){
         fetch ('http://ron-swanson-quotes.herokuapp.com/v2/quotes/5', {
@@ -16,14 +23,20 @@ class Slider extends Component {
         .then(res => res.json())
         .then(res => {
           this.setState({ quotes: res });
-        })
+        }) 
+        .catch(err => console.log(err)); 
       }
 
 
     render(){
         return (
             <div className="slider">
-                <h2 className="quote">{this.state.quotes[0]}</h2>
+                <h3 className="quote">{this.state.quotes[0]}</h3>
+                <h3 className="quote">{this.state.quotes[1]}</h3>
+                <h3 className="quote">{this.state.quotes[2]}</h3>
+                <h3 className="quote">{this.state.quotes[3]}</h3>
+                <h3 className="quote">{this.state.quotes[4]}</h3>
+                <ControlledCarousel />
             </div>
         )
     }
