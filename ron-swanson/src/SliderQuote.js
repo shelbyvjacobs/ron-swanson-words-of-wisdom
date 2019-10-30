@@ -55,7 +55,7 @@ function ControlledCarousel() {
         </Carousel.Item>
       </Carousel>
     );
-    }
+  }
   }
 
   export default ControlledCarousel;

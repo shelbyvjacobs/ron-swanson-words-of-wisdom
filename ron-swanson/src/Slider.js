@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import ControlledCarousel from "./SliderQuote.js";
+import './App.css';
+// import ControlledCarousel from "./SliderQuote.js";
 
 
 class Slider extends Component {
@@ -30,13 +31,13 @@ class Slider extends Component {
 
     render(){
         return (
-            <div className="slider">
+            <div className="Slider">
                 <h3 className="quote">{this.state.quotes[0]}</h3>
                 <h3 className="quote">{this.state.quotes[1]}</h3>
                 <h3 className="quote">{this.state.quotes[2]}</h3>
                 <h3 className="quote">{this.state.quotes[3]}</h3>
                 <h3 className="quote">{this.state.quotes[4]}</h3>
-                <ControlledCarousel />
+                {/* <ControlledCarousel /> */}
             </div>
         )
     }
