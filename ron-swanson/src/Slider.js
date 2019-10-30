@@ -1,18 +1,27 @@
 import React, {Component} from 'react';
 import './App.css';
-// import ControlledCarousel from "./SliderQuote.js";
-
+import SliderQuote from "./SliderQuote";
 
 class Slider extends Component {
-    state = {
-        apiUrl: "http://ron-swanson-quotes.herokuapp.com/v2/quotes/5",
-        quotes: [],
-        i: 0
-    }
+  constructor(props){
+    super(props);
 
-    // slideshow = () => {
-        
-    // }
+    this.state = {
+      selectedFooter: 1,
+      apiUrl: "http://ron-swanson-quotes.herokuapp.com/v2/quotes/5",
+      quotes: []
+    };
+
+    this.settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      arrows: false
+    }
+    this.componentDidMount = this.componentDidMount.bind(this);
+  }
 
     componentDidMount(){
         fetch ('http://ron-swanson-quotes.herokuapp.com/v2/quotes/5', {
@@ -32,12 +41,12 @@ class Slider extends Component {
     render(){
         return (
             <div className="Slider">
-                <h3 className="quote">{this.state.quotes[0]}</h3>
+                <SliderQuote settings={this.settings} />
+                {/* <h3 className="quote">{this.state.quotes[0]}</h3>
                 <h3 className="quote">{this.state.quotes[1]}</h3>
                 <h3 className="quote">{this.state.quotes[2]}</h3>
                 <h3 className="quote">{this.state.quotes[3]}</h3>
-                <h3 className="quote">{this.state.quotes[4]}</h3>
-                {/* <ControlledCarousel /> */}
+                <h3 className="quote">{this.state.quotes[4]}</h3> */}
             </div>
         )
     }
